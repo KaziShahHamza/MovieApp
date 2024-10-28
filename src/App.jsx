@@ -5,18 +5,9 @@ import MovieCard from "./MovieCard";
 
 const API_URL = "http://www.omdbapi.com?apikey=8c0d98cc";
 
-const movie1 = {
-  Title: "Batman v Superman: Dawn of Justice",
-  Year: "2016",
-  imdbID: "tt2975590",
-  Type: "movie",
-  Poster:
-    "https://m.media-amazon.com/images/M/MV5BZTJkYjdmYjYtOGMyNC00ZGU1LThkY2ItYTc1OTVlMmE2YWY1XkEyXkFqcGc@._V1_SX300.jpg",
-};
-
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
@@ -38,7 +29,11 @@ const App = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <img src={SearchIcon} alt="search" onClick={() => searchMovies(searchTerm)} />
+        <img
+          src={SearchIcon}
+          alt="search"
+          onClick={() => searchMovies(searchTerm)}
+        />
       </div>
 
       {movies?.length > 0 ? (
